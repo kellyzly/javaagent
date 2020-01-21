@@ -1,0 +1,18 @@
+@startuml
+
+autonumber
+
+Main -> MyInstrumentationAgent : transformClass
+
+activate MyInstrumentationAgent
+MyInstrumentationAgent -> AtmTransformer: transform
+
+activate AtmTransformer
+AtmTransformer --> AtmTransformer: transform
+AtmTransformer -> MyInstrumentationAgent: transformClass
+deactivate AtmTransformer
+
+MyInstrumentationAgent -> Main: transformClass
+deactivate MyInstrumentationAgent
+
+@enduml
